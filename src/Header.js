@@ -6,6 +6,7 @@ import React from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from "axios"
 function Header({gotUser,user}) {
+  const backendLink=`https://schedule-backend-production-580e.up.railway.app`;
   const [login,setLogin]=useState(false);
   const [loginEntry, setLoginEntry] = useState(undefined);
   const [userLogin,setUser] = useState(undefined);
@@ -23,7 +24,7 @@ function Header({gotUser,user}) {
     const u= userLogin;
     setUser(undefined);
     console.log(u);
-    await axios.get(`https://schedule-backend-production.up.railway.app/api/users/${u.email.toLowerCase()}`,{}).then((r)=>
+    await axios.get(`${backendLink}/api/users/${u.email.toLowerCase()}`,{}).then((r)=>
       {
         if(r.data){
           gotUser(r.data);
@@ -38,7 +39,7 @@ function Header({gotUser,user}) {
     
   }
   async function newUser(user){
-    await axios.post(`https://schedule-backend-production.up.railway.app/api/users`,{
+    await axios.post(`${backendLink}/api/users`,{
       name:user.name,
       email:user.email,
     },{
@@ -54,7 +55,7 @@ function Header({gotUser,user}) {
   }
   async function putUser(user,P1,P2,P3,P4){
     console.log([P1,P2,P3,P4]);
-    await axios.put(`https://schedule-backend-production.up.railway.app/api/users/${user.email.toLowerCase()}`,{
+    await axios.put(`${backendLink}/api/users/${user.email.toLowerCase()}`,{
       P1:P1,
       P2:P2,
       P3:P3,
