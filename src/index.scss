@@ -68,17 +68,60 @@ body{
   background-color: black;
   
 }
-.user{
+.userLogin {
   background-color: white;
-  opacity: 100%;
-  position:fixed;
-  top:20%;
-  left:20%;
-  right:20%;
-  bottom:20%;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: auto;
   z-index: 10;
-  
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  margin: auto;
 }
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  color: #555;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.google-btn:hover {
+  background-color: #f7f7f7;
+}
+
+.google-logo {
+  width: 20px;
+  height: 20px;
+}
+.closeButton{
+  background: white;
+  border: solid lightgray;
+  border-width: thin;
+  font-size: 15px;
+  color: #595959;
+  padding: 10px;
+}
+.closeButton:hover {
+  background-color: #f7f7f7;
+}
+
 @media all and (max-width: 750px) {
   .header{
     .Title{
@@ -96,5 +139,75 @@ body{
     .User{
       padding: 0vh;
     }
+  }
+}
+.user {
+  background-color: white;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: auto;
+  z-index: 10;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  margin: auto;
+}
+
+.user label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #333;
+}
+
+.user input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.user button {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.user button:first-of-type {
+  background-color: #4285f4; /* Google blue */
+  color: white;
+}
+
+.user button:first-of-type:hover {
+  background-color: #357ae8;
+}
+
+.user button:last-of-type {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.user button:last-of-type:hover {
+  background-color: #e0e0e0;
+}
+
+@media (max-width: 600px) {
+  .user {
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    padding: 15px;
+    max-width: 100%;
   }
 }

@@ -6,7 +6,7 @@ import React from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from "axios"
 function Header({gotUser,user}) {
-  const backendLink=`https://schedule-backend-production-580e.up.railway.app`;
+  const backendLink=`https://schedule-backend-l8j8.onrender.com`;
   const [login,setLogin]=useState(false);
   const [loginEntry, setLoginEntry] = useState(undefined);
   const [userLogin,setUser] = useState(undefined);
@@ -26,6 +26,7 @@ function Header({gotUser,user}) {
     console.log(u);
     await axios.get(`${backendLink}/api/users/${u.email.toLowerCase()}`,{}).then((r)=>
       {
+        console.log(r)
         if(r.data){
           gotUser(r.data);
         }
@@ -66,7 +67,7 @@ function Header({gotUser,user}) {
       'access-control-allow-headers':"X-Requested-With,content-type",
       'access-control-allow-methods':'GET, POST, OPTIONS, PUT, PATCH, DELETE'
     }).then((r)=>{
-      gotUser([r.data.user]);
+      gotUser(r.data.user);
     }).catch(()=>{
       alert("Couldn't update User");
     })
@@ -120,12 +121,20 @@ function Header({gotUser,user}) {
       </div>
       {
         login && (<>
-        <div className="background"/>
-        <div className="user">
-            <button onClick={()=>makeLoginEntry()}>Login In With Google</button>
-            <button onClick={()=>setLogin(false)}>Close</button>
-          </div>
-        </>
+            <div className="background" />
+            <div className="userLogin">
+              <button className="google-btn" onClick={() => makeLoginEntry()}>
+                <img
+                  className="google-logo"
+                  src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                  alt="Google logo"
+                />
+                <span>Sign in with Google</span>
+              </button>
+
+              <button className='closeButton' onClick={() => setLogin(false)}>Close</button>
+            </div>
+          </>
         )
       }
       {
@@ -133,29 +142,43 @@ function Header({gotUser,user}) {
           <div className="background"/>
           <div className="user">
             <label>
-              <input id="P1" type="text" defaultValue={P1} onChange={(text)=>{
-                console.log(text,P1)
-                setP1(text.target.value)}}/>
+              <input
+                id="P1"
+                type="text"
+                defaultValue={P1}
+                onChange={(e) => setP1(e.target.value)}
+              />
             </label>
-            <br/>
+
             <label>
-              <input id="P2" type="text" defaultValue={P2} onChange={(text)=>setP2(text.target.value)}/>
+              <input
+                id="P2"
+                type="text"
+                defaultValue={P2}
+                onChange={(e) => setP2(e.target.value)}
+              />
             </label>
-            <br/>
+
             <label>
-              <input id="P3" type="text" defaultValue={P3} onChange={(text)=>setP3(text.target.value)}/>
+              <input
+                id="P3"
+                type="text"
+                defaultValue={P3}
+                onChange={(e) => setP3(e.target.value)}
+              />
             </label>
-            <br/>
+
             <label>
-              <input id="P4" type="text" defaultValue={P4} onChange={(text)=>setP4(text.target.value)}/>
+              <input
+                id="P4"
+                type="text"
+                defaultValue={P4}
+                onChange={(e) => setP4(e.target.value)}
+              />
             </label>
-            <br/>
-            <button onClick={()=>{
-              setChangeUser(true)}}>Submit</button>
-            <br/>
-            <button onClick={()=>{
-              setUserMenu(false)
-            }}>Close</button>
+
+            <button onClick={() => setChangeUser(true)}>Submit</button>
+            <button onClick={() => setUserMenu(false)}>Close</button>
           </div>
           </>
           )
