@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Schedule-FrontEnd/static/css/main.8a970a50.css",
-    "main.js": "/Schedule-FrontEnd/static/js/main.a90d8497.js",
+    "main.css": "/Schedule-FrontEnd/static/css/main.45cced37.css",
+    "main.js": "/Schedule-FrontEnd/static/js/main.39ece428.js",
     "static/media/skyline-high-resolution-logo.png": "/Schedule-FrontEnd/static/media/skyline-high-resolution-logo.548bcc6d0204c48340f6.png",
     "index.html": "/Schedule-FrontEnd/index.html",
-    "main.8a970a50.css.map": "/Schedule-FrontEnd/static/css/main.8a970a50.css.map",
-    "main.a90d8497.js.map": "/Schedule-FrontEnd/static/js/main.a90d8497.js.map"
+    "main.45cced37.css.map": "/Schedule-FrontEnd/static/css/main.45cced37.css.map",
+    "main.39ece428.js.map": "/Schedule-FrontEnd/static/js/main.39ece428.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a970a50.css",
-    "static/js/main.a90d8497.js"
+    "static/css/main.45cced37.css",
+    "static/js/main.39ece428.js"
   ]
 }
