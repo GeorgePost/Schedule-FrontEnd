@@ -67,7 +67,8 @@ function Header({gotUser,user}) {
       'access-control-allow-headers':"X-Requested-With,content-type",
       'access-control-allow-methods':'GET, POST, OPTIONS, PUT, PATCH, DELETE'
     }).then((r)=>{
-      gotUser(r.data.user);
+      console.log(r);
+      gotUser(r.data);
     }).catch(()=>{
       alert("Couldn't update User");
     })
@@ -82,6 +83,7 @@ function Header({gotUser,user}) {
     if(changeUser){
       putUser(user,P1,P2,P3,P4);
       setChangeUser(false);
+      setUserMenu(false);
     }
     if(userLogin){
       setLogin(false);
